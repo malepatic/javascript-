@@ -75,10 +75,14 @@ function addDeleteButton(row) {
         const deleteButton = document.createElement("button");
         deleteButton.innerText = "Delete";
         deleteButton.onclick = function () {
-            row.remove();
-            row.nextElementSibling.remove();  
-            alert(`${row.cells[1].innerText} Record deleted successfully`);
-            checkSubmitButtonStatus();
+            const rowContent = row.cells[1].innerText;  
+            row.remove();  
+            if (row.nextElementSibling) {
+                row.nextElementSibling.remove(); 
+            }
+            alert(` ${rowContent} Record deleted successfully!`);
+            
+            checkSubmitButtonStatus();  
         };
         deleteCell.appendChild(deleteButton);
     }
