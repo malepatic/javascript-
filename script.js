@@ -1,14 +1,3 @@
-//Title constructor function that creates a Title object
- function Title(t1) 
-{ 
-    this.mytitle = t1;
-}
-
-Title.prototype.getName = function () 
-{ 
-return (this.mytitle);
-}
-
 let studentCount = 0;
 
         function initializePage() {
@@ -145,14 +134,5 @@ function checkSubmitButtonStatus() {
         
         function removeButtons(row) {
             row.cells[8].innerHTML = ""; 
-            row.cells[9].innerHTM
+            row.cells[9].innerHTML ="";
         }
-
-var socialMedia = {
-    facebook : 'http://facebook.com',
-    twitter: 'http://twitter.com',
-    flickr: 'http://flickr.com',
-    youtube: 'http://youtube.com'
-  };
-  
-  var t = new Title("CONNECT WITH ME!");

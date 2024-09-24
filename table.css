@@ -14,6 +14,10 @@
 	padding: 5px;
 }
 
+userinfo {
+	text-align: center;
+}
+
 #myTable th {
 	color: #fff;
 	background-color: #a7c942;
