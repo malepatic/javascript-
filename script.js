@@ -11,37 +11,36 @@ return (this.mytitle);
 
 let studentCount = 0;
 
-        function initializePage() {
-            document.getElementById('userInfo').innerText = "Malepati Chaitanya and 002499361";
-        }
+function initializePage() {
+    document.getElementById('userInfo').innerText = "Malepati Chaitanya and 002499361";
+}
 
-        function toggleRowDetails(imgElement) {
-            const row = imgElement.closest('tr').nextElementSibling;
-            row.style.display = row.style.display === "none" ? "table-row" : "none";
-        }
+function toggleRowDetails(imgElement) {
+    const row = imgElement.closest('tr').nextElementSibling;
+    row.style.display = row.style.display === "none" ? "table-row" : "none";
+}
 
-        function toggleSelection(checkbox) {
-            const row = checkbox.closest('tr');
-            const submitButton = document.getElementById("submitButton");
+function toggleSelection(checkbox) {
+    const row = checkbox.closest('tr');
+    const submitButton = document.getElementById("submitButton");
 
-            if (checkbox.checked) {
-                row.style.backgroundColor = "yellow";
-                submitButton.disabled = false;
-                submitButton.style.backgroundColor = "orange";
-                addDeleteButton(row);
-                addEditButton(row);
-            } else {
-                row.style.backgroundColor = "white";
-                removeButtons(row);
-                checkSubmitButtonStatus();
-            }
-        }
-
+    if (checkbox.checked) {
+        row.style.backgroundColor = "yellow";
+        submitButton.disabled = false;
+        submitButton.style.backgroundColor = "orange";
+        addDeleteButton(row);
+        addEditButton(row);
+    } else {
+        row.style.backgroundColor = "white";
+        removeButtons(row);
+        checkSubmitButtonStatus();
+    }
+}
 
 function addNewStudent() {
     studentCount++;
-    const table = document.getElementById("myTable");
 
+    const table = document.getElementById("myTable");
     const newRow = `
         <tr>
             <td><input type="checkbox" onchange="toggleSelection(this)"/><br /><br /><img src="down.png" width="25px" onclick="toggleRowDetails(this)" /></td>
@@ -50,7 +49,7 @@ function addNewStudent() {
             <td>Approved</td>
             <td>Fall</td>
             <td>TA</td>
-            <td>${Math.floor(10000 + Math.random() * 90000)}</td>
+            <td>${Math.floor(90000 + Math.random() * 80000)}</td>
             <td>100%</td>
             <td></td>
             <td></td>
@@ -62,11 +61,13 @@ function addNewStudent() {
                 Budget Number: <br />
                 Comments:<br /><br /><br />
                 Award Status:<br /><br /><br />
-            </td>
-        </tr>`;
+            </td> </tr>`;
+
     table.insertAdjacentHTML('beforeend', newRow);
 
-    alert(`Student ${studentCount} Record added successfully`);
+    setTimeout(function() {
+        alert(`Student ${studentCount} Record added successfully`);
+    }, 10); 
 }
 
 function addDeleteButton(row) {
@@ -75,19 +76,20 @@ function addDeleteButton(row) {
         const deleteButton = document.createElement("button");
         deleteButton.innerText = "Delete";
         deleteButton.onclick = function () {
-            const rowContent = row.cells[1].innerText;  
+            const rowContent = row.cells[1].innerText;
             row.remove();  
             if (row.nextElementSibling) {
                 row.nextElementSibling.remove(); 
             }
-            alert(` ${rowContent} Record deleted successfully!`);
+            setTimeout(function() {
+                alert(`${rowContent} Record deleted successfully!`);
+            }, 10);
             
             checkSubmitButtonStatus();  
         };
         deleteCell.appendChild(deleteButton);
     }
 }
-
 
 function addEditButton(row) {
     let editCell = row.cells[9]; 
@@ -110,7 +112,6 @@ function showEditPopup(row) {
     const budget = row.cells[6].innerHTML; 
     const percentage = row.cells[7].innerHTML; 
 
-
     const popup = document.createElement('div');
     popup.classList.add('popup');
     popup.innerHTML = `
@@ -130,7 +131,6 @@ function showEditPopup(row) {
 
     document.body.appendChild(popup); 
 
-
     popup.style.position = 'fixed';
     popup.style.left = '50%';
     popup.style.top = '50%';
@@ -140,26 +140,26 @@ function showEditPopup(row) {
     popup.style.padding = '20px';
     popup.style.zIndex = '1000';
 
-    
     document.getElementById('updateButton').onclick = function () {
-        alert(`${studentName} data updated successfully`);
+        setTimeout(function() {
+            alert(`${studentName} data updated successfully`);
+        }, 10);
         closePopup(popup); 
     };
 
-    
     document.getElementById('cancelButton').onclick = function () {
         closePopup(popup); 
+    };
 }
 
 function closePopup(popup) {
     document.body.removeChild(popup); 
 }
-}
+
 function removeButtons(row) {
     row.cells[8].innerHTML = "";
     row.cells[9].innerHTML = "";
 }
-
 
 function checkSubmitButtonStatus() {
     const checkboxes = document.querySelectorAll('#myTable input[type="checkbox"]');
