@@ -49,7 +49,7 @@ function addNewStudent() {
             <td>Approved</td>
             <td>Fall</td>
             <td>TA</td>
-            <td>${Math.floor(90000 + Math.random() * 80000)}</td>
+            <td>${Math.floor(9999 + Math.random() * 7999)}</td>
             <td>100%</td>
             <td></td>
             <td></td>
@@ -58,37 +58,19 @@ function addNewStudent() {
             <td colspan="10">
                 Advisor:<br /><br />
                 Award Details<br />
+                Summer 1-2024(TA)<br />
                 Budget Number: <br />
+                Tuition Number: <br />
                 Comments:<br /><br /><br />
                 Award Status:<br /><br /><br />
-            </td> </tr>`;
+            </td> 
+            </tr>`;
 
     table.insertAdjacentHTML('beforeend', newRow);
 
     setTimeout(function() {
         alert(`Student ${studentCount} Record added successfully`);
     }, 10); 
-}
-
-function addDeleteButton(row) {
-    let deleteCell = row.cells[8];
-    if (deleteCell.innerHTML === "") {
-        const deleteButton = document.createElement("button");
-        deleteButton.innerText = "Delete";
-        deleteButton.onclick = function () {
-            const rowContent = row.cells[1].innerText;
-            row.remove();  
-            if (row.nextElementSibling) {
-                row.nextElementSibling.remove(); 
-            }
-            setTimeout(function() {
-                alert(`${rowContent} Record deleted successfully!`);
-            }, 10);
-            
-            checkSubmitButtonStatus();  
-        };
-        deleteCell.appendChild(deleteButton);
-    }
 }
 
 function addEditButton(row) {
@@ -115,7 +97,7 @@ function showEditPopup(row) {
     const popup = document.createElement('div');
     popup.classList.add('popup');
     popup.innerHTML = `
-        <div class="popup-content">
+        <div class="popup-content"><img src="pencil.png" width="15px" onclick="EditDetails(this)" />
             <h2>Edit details of ${studentName}</h2>
             <p><strong>Student:</strong> ${studentName}</p>
             <p><strong>Teacher:</strong> ${teacherName}</p>
@@ -132,11 +114,11 @@ function showEditPopup(row) {
     document.body.appendChild(popup); 
 
     popup.style.position = 'fixed';
-    popup.style.left = '50%';
-    popup.style.top = '50%';
-    popup.style.transform = 'translate(-50%, -50%)';
+    popup.style.left = '53%';
+    popup.style.top = '53%';
+    popup.style.transform = 'translate(-54%, -54%)';
     popup.style.backgroundColor = 'white';
-    popup.style.border = '2px solid black';
+    popup.style.border = '2px solid green';
     popup.style.padding = '20px';
     popup.style.zIndex = '1000';
 
@@ -149,8 +131,8 @@ function showEditPopup(row) {
 
     document.getElementById('cancelButton').onclick = function () {
         closePopup(popup); 
-    };
-}
+    };}
+
 
 function closePopup(popup) {
     document.body.removeChild(popup); 
@@ -171,6 +153,29 @@ function checkSubmitButtonStatus() {
         submitButton.style.backgroundColor = "gray";
     }
 }
+
+function addDeleteButton(row) {
+    let deleteCell = row.cells[8];
+    if (deleteCell.innerHTML === "") {
+        const deleteButton = document.createElement("button");
+        deleteButton.innerText = "Delete";
+        deleteButton.onclick = function () {
+            const rowContent = row.cells[1].innerText;
+            row.remove();  
+            if (row.nextElementSibling) {
+                row.nextElementSibling.remove(); 
+            }
+            setTimeout(function() {
+                alert(`${rowContent} Record deleted successfully`);
+            }, 10);
+            
+            checkSubmitButtonStatus();  
+        };
+        deleteCell.appendChild(deleteButton);
+    }
+}
+
+
 var socialMedia = {
     facebook : 'http://facebook.com',
     twitter: 'http://twitter.com',
