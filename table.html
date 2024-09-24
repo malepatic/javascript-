@@ -2,49 +2,42 @@
 
 <!-- Also read chapter 9 from slides - Regular Expressions -->
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Table CheckList</title>
+    <title>Student Table</title>
     <link rel="stylesheet" type="text/css" href="table.css">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body onload="initializePage()">
-
-    <h1 id="userInfo"></h1>
-
+    <div id="userInfo"></div>
     <table id="myTable">
-        <tr>
-            <th></th>
-            <th>STUDENT</th>
-            <th>ADVISOR</th>
-            <th>AWARD<br/>STATUS</th>
-            <th>SEMESTER</th>
-            <th>TYPE</th>
-            <th>BUDGET<br />#</th>
-            <th>PERCENTAGE</th>
-            <th>DELETE</th>
-            <th>EDIT</th>
+        <thead>
+            <tr>
+                <th>Select</th>
+                <th>Student</th>
+                <th>Teacher</th>
+                <th>Status</th>
+                <th>Semester</th>
+                <th>TA Status</th>
+                <th>Budget</th>
+                <th>Percentage</th>
+                <th style="display:none;">Delete</th> 
+                <th style="display:none;">Edit</th> 
+            </tr>
+        </thead>
+        <tbody>
             
-        <tr class="dropDownTextArea" style="display:none;">
-            <td colspan="10">
-                Advisor:<br /><br />
-                Award Details<br />
-                Summer 1-2024(TA)<br />
-                Budget Number: <br />
-                Tuition Number<br />
-                Comments:<br /><br /><br />
-                Award Status:<br /><br /><br />
-            </td>
-        </tr>
+        </tbody>
     </table>
-    <br /><br />
 
-    <button id="submitButton" disabled>SUBMIT SELECTED AWARDS</button>
-    <button id="addStudentButton" onclick="addNewStudent()">Add New Student</button>
+    <button id="submitButton" disabled>Submit Seclected Awards</button>
+    <button onclick="addNewStudent()">Add New Student</button>
 
-    <nav class="socialmediaicons"></nav>
-        <script src="script.js"></script>        
+    <script src="script.js">
+
+    </script>
 </body>
 </html>
