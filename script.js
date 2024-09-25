@@ -59,11 +59,13 @@ let studentCount = 0;
                 </tr>
                 <tr class="dropDownTextArea" style="display:none;">
                     <td colspan="10">
-                        Advisor:<br /><br />
-                        Award Details<br />
-                        Budget Number: <br />
-                        Comments:<br /><br /><br />
-                        Award Status:<br /><br /><br />
+                        Advisor:<br/><br/>
+                        Award Details<br/>
+                        Summer 1-2024(TA)<br/>
+                        Budget Number: <br/>
+                        Tuition Number: <br/>
+                        Comments:<br/><br/><br/>
+                        Award Status:<br/><br/><br/>
                     </td>
                 </tr>`;
 
@@ -127,7 +129,16 @@ function checkSubmitButtonStatus() {
             const budget = row.cells[6].innerHTML; 
             const percentage = row.cells[7].innerHTML; 
         
-            const message = `Edit details of ${studentName}\n` 
+            // Message to display in the confirm dialog
+            const message = `Edit details of ${studentName}\n` +
+                            `Student: ${studentName}\n` +
+                            `Teacher: ${teacherName}\n` +
+                            `Status: ${status}\n` +
+                            `Semester: ${semester}\n` +
+                            `TA Status: ${taStatus}\n` +
+                            `Budget: ${budget}\n` +
+                            `Percentage: ${percentage}` 
+                            ;
         
             confirm(message);
         }
