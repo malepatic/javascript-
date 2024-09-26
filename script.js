@@ -134,12 +134,7 @@ let studentCount = 0;
 
         confirm(message);
     }
-
-    function removeButtons(row) {
-        row.cells[8].innerHTML = "";
-        row.cells[9].innerHTML = "";
-    }
-
+    
     function updateHeaderVisibility() {
         const checkboxes = document.querySelectorAll('#myTable input[type="checkbox"]');
         const headerRow = document.querySelector('#myTable thead tr');
@@ -152,4 +147,10 @@ let studentCount = 0;
             row.cells[8].style.display = isAnyChecked ? "table-cell" : "none";
             row.cells[9].style.display = isAnyChecked ? "table-cell" : "none";
         });
+    }
+
+
+    function removeButtons(row) {
+        row.cells[8].innerHTML = "";
+        row.cells[9].innerHTML = "";
     }
