@@ -31,6 +31,7 @@ let studentCount = 0;
             removeButtons(row);
             checkSubmitButtonStatus();
         }
+        //console.log()
         updateHeaderVisibility();
     }
 
@@ -94,7 +95,7 @@ let studentCount = 0;
                 setTimeout(function() {
                     alert(`${rowContent} Record deleted successfully!`);
                 }, 10);
-                
+                //console.log()
                 checkSubmitButtonStatus();
                 updateHeaderVisibility();
             };
