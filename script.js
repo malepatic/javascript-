@@ -1,7 +1,8 @@
 let studentCount = 0;
 
     function initializePage() {
-        document.getElementById('userInfo').innerText = "Malepati Chaitanya and 002499361";
+        document.getElementById('userInfo').innerText = "Malepati Chaitanya and 002499361 ";
+        
     }
 
     function toggleRowDetails(imgElement) {
@@ -45,7 +46,7 @@ let studentCount = 0;
                 <td>Approved</td>
                 <td>Fall</td>
                 <td>TA</td>
-                <td>${Math.floor(10000 + Math.random() * 90000)}</td>
+                <td>${Math.floor(8000 + Math.random() * 89900)}</td>
                 <td>100%</td>
                 <td style="display:none;"></td>
                 <td style="display:none;"></td>
