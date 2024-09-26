@@ -1,5 +1,6 @@
 let studentCount = 0;
 
+
         function initializePage() {
             document.getElementById('userInfo').innerText = "Malepati Chaitanya and 002499361";
         }
@@ -42,7 +43,6 @@ let studentCount = 0;
 
         function addNewStudent() {
             studentCount++;
-
             const table = document.getElementById("myTable");
             const newRow = `
                 <tr>
